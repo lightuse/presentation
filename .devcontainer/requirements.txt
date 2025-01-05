@@ -10,4 +10,6 @@ pylint
 japanize_matplotlib
 toml
 graphviz
-seaborn
+diagrams
+ipython
+matplotlib-inline

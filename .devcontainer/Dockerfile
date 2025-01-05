@@ -10,7 +10,18 @@ RUN apt-get update && apt-get install -y \
     curl \
     sudo \
     python3-tk \
+    fonts-ipafont \
+    graphviz \
     && rm -rf /var/lib/apt/lists/*
+
+# Node.jsとnpmのインストール
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g @marp-team/marp-cli
+
+# Chromium Driverのインストール
+RUN apt-get update -y \
+    && apt-get install -y chromium-driver
 
 # ユーザー設定
 RUN groupadd --gid $USER_GID $USERNAME \
